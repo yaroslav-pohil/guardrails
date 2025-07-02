@@ -1,2 +1,4 @@
-guardrails-ai[api]>=0.5.0
+guardrails-ai[api]>=0.5.10
 gunicorn[gthread]>=22.0.0,<23
+rstr>=3.2.2,<4
+python-dotenv>=1.0.0

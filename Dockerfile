@@ -24,6 +24,7 @@ COPY requirements*.txt .
 
 # Install app dependencies
 # If you use Poetry this step might be different
+RUN pip install --upgrade pip 
 RUN pip install -r requirements-lock.txt
 
 # Set the directory for nltk data
@@ -33,9 +34,11 @@ ENV NLTK_DATA=/opt/nltk_data
 RUN python -m nltk.downloader -d /opt/nltk_data punkt
 
 # Run the Guardrails configure command to create a .guardrailsrc file
-RUN guardrails configure --enable-metrics --enable-remote-inferencing  --token $GUARDRAILS_TOKEN
+RUN guardrails configure --enable-remote-inferencing --disable-metrics --token $GUARDRAILS_TOKEN
 
 # Install any validators from the hub you want
+RUN guardrails hub install hub://guardrails/detect_jailbreak
+RUN guardrails hub install hub://arize-ai/llm_rag_evaluator
 RUN guardrails hub install hub://guardrails/regex_match
 
 # Copy the rest over
