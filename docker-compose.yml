@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  guardrails-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        GUARDRAILS_TOKEN: $GUARDRAILS_TOKEN
+    image: guardrails-server:latest
+    ports:
+      - "8000:8000"
+    container_name: guardrails-server
+    restart: unless-stopped 

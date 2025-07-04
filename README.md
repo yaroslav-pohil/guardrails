@@ -6,6 +6,18 @@ For this deployment, we use a config file to define our Guards so we don't need 
 
 ## Run the server locally
 
+Copy the `.env.example` file to `.env` and fill in the values.
+
+Use https://hub.guardrailsai.com/tokens to get your API key for the `GUARDRAILS_TOKEN` value.
+
+Use https://platform.openai.com/account/api-keys to get your API key for the `OPENAI_API_KEY` value.
+
+### Docker
+1. `make dbuild` - build the docker image. Needs to be done only once.
+2. `make dstart` - start the server.
+3. `make dstop` - stop the server.
+
+
 ### Linux and MacOS
 1. Clone this repository
 2. `make env`
