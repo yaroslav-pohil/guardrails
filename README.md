@@ -27,7 +27,6 @@ Use https://platform.openai.com/account/api-keys to get your API key for the `OP
 
 Once the server is up and running, you can check out the Swagger docs at http://localhost:8000/docs
 
-
 ## Productionizing
 We include a Dockerfile that shows the basic steps of containerizing this server.
 
